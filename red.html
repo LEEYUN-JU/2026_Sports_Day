@@ -204,8 +204,8 @@
 
 .name {
   font-size:13px;
-  color:#000000;
-  margin-top:4px;
+  color:#2c2c2c;
+  margin-top:2px;
 }
 
 @media (max-width: 768px) 
@@ -253,8 +253,8 @@
 
   .name {
     font-size:20px;
-    color:#000000;
-    margin-top:4px;
+    color:#403f3f;
+    margin-top:1px;
   }
 
   .card-all-member {
@@ -379,7 +379,7 @@
 </div>
 
 <div class="title-box">
-  <div class="main-title" style="color: rgb(61, 47, 47);">メンバー表　役割分担<span>　<span style="color: rgb(230, 13, 49);">紅 チーム</span></div>  
+  <div class="main-title" style="color: rgb(61, 47, 47);">メンバー表　役割分担<span>　<span style="color: #cc1414;">紅 チーム</span></div>  
 </div>
 
 <div class="main-layout">
@@ -512,9 +512,9 @@
           <div class="card-body" style="display:grid;grid-template-columns:1fr;gap:3px;">
             <div class="role-section">
               <span class="role-label rl-p" style="margin-top: -7px;">各 2名</span>
-              <div class="slots">
-                <div class="slot"><span class="slot-num">1</span></div>
-                <div class="slot"><span class="slot-num">2</span></div>
+              <div class="slots" >
+                <div class="slot" data-game="pingpong"><span class="slot-num">1</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="pingpong"><span class="slot-num">2</span><span class="name" onclick="editName(this)">name</span></div>
               </div>
             </div>      
           </div>
@@ -533,8 +533,8 @@
               <div class="role-section">
                 <span class="role-label rl-p" style="margin-top: -7px;">各 2名</span>
                 <div class="slots" style="display:grid;grid-template-columns:1fr;gap:3px;">
-                  <div class="slot"><span class="slot-num">1</span></div>
-                  <div class="slot"><span class="slot-num">2</span></div>
+                  <div class="slot" data-game="badminton"><span class="slot-num">1</span><span class="name" onclick="editName(this)">name</span></div>
+                  <div class="slot" data-game="badminton"><span class="slot-num">2</span><span class="name" onclick="editName(this)">name</span></div>
                 </div>
               </div>
             </div>
@@ -554,14 +554,14 @@
             <div class="role-section">
               <span class="role-label rl-p">各 8名</span>
               <div class="slots" style="display:grid;grid-template-columns:1fr;gap:3px;">
-                <div class="slot"><span class="slot-num">1</span></div>
-                <div class="slot"><span class="slot-num">2</span></div>
-                <div class="slot"><span class="slot-num">3</span></div>
-                <div class="slot"><span class="slot-num">4</span></div>
-                <div class="slot"><span class="slot-num">5</span></div>
-                <div class="slot"><span class="slot-num">6</span></div>
-                <div class="slot"><span class="slot-num">7</span></div>
-                <div class="slot"><span class="slot-num">8</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">1</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">2</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">3</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">4</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">5</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">6</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">7</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="basketball"><span class="slot-num">8</span><span class="name" onclick="editName(this)">name</span></div>
               </div>
             </div>            
           </div>
@@ -581,16 +581,16 @@
             <div class="role-section">
               <span class="role-label rl-g">ペア</span>
               <div class="slots r" style="display:grid;grid-template-columns:1fr; gap:3px;">
-                <div class="slot"><span class="slot-num g">1</span></div>
-                <div class="slot"><span class="slot-num g">1</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #1D9E75;">2</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #1D9E75;">2</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #0e7c59;">3</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #0e7c59;">3</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #0d6e50;">4</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #0d6e50;">4</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #065038;">5</span></div>
-                <div class="slot"><span class="slot-num g" style="background: #065038;">5</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g">1</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g">2</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #1D9E75;">3</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #1D9E75;">4</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #0e7c59;">5</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #0e7c59;">6</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #0d6e50;">7</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #0d6e50;">8</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #065038;">9</span><span class="name" onclick="editName(this)">name</span></div>
+                <div class="slot" data-game="sackrace"><span class="slot-num g" style="background: #065038;">0</span><span class="name" onclick="editName(this)">name</span></div>
               </div>
             </div>      
           </div>      
@@ -618,34 +618,34 @@
             </div>
             <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 3px; margin-bottom: 3px;">
               <div class="obs-item"><span class="obs-n">①</span>ピンポン運び<br/>＋ケンケンパ</div>
-              <div class="slot"><span class="slot-num">1</span></div>
+              <div class="slot" data-game="obstacle"><span class="slot-num">1</span><span class="name" onclick="editName(this)">name</span></div>
             </div>            
             <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 3px; margin-bottom: 3px;">
               <div class="obs-item"><span class="obs-n">②</span>飴玉探し</div>
-              <div class="slot"><span class="slot-num">2</span></div>
+              <div class="slot" data-game="obstacle"><span class="slot-num">2</span><span class="name" onclick="editName(this)">name</span></div>
             </div>
             <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 3px; margin-bottom: 3px;">
               <div class="obs-item"><span class="obs-n">③</span>借り物競争</div>
-              <div class="slot"><span class="slot-num">3</span></div>
+              <div class="slot" data-game="obstacle"><span class="slot-num">3</span><span class="name" onclick="editName(this)">name</span></div>
             </div>
             <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 3px; margin-bottom: 3px;">
               <div class="obs-item"><span class="obs-n">④</span>ぐるぐるバット</div>
-              <div class="slot"><span class="slot-num">4</span></div>
+              <div class="slot" data-game="obstacle"><span class="slot-num">4</span><span class="name" onclick="editName(this)">name</span></div>
             </div>
             <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 3px; margin-bottom: 3px;">
               <div class="obs-item"><span class="obs-n">⑤</span>パコポコポコ</div>
-              <div class="slot"><span class="slot-num">5</span></div>
+              <div class="slot" data-game="obstacle"><span class="slot-num">5</span><span class="name" onclick="editName(this)">name</span></div>
             </div>
             <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 3px;">
               <div class="obs-item"><span class="obs-n">⑥</span>パン食い競争</div>
-              <div class="slot"><span class="slot-num">6</span></div>
+              <div class="slot" data-game="obstacle"><span class="slot-num">6</span><span class="name" onclick="editName(this)">name</span></div>
             </div>
 
           <div style="font-size:10px;color:#5F5E5A;margin-top:4px;">1人2種障害クリア → バトン交代</div>
         </div>
         <div class="card-body">
           <span class="role-label rl-p" style="background-color:#857d0b; font-size: 10px;">棒持ち 1名</span>
-          <div class="slot"><span class="slot-num" style="background-color: 857d0b;">1</span></div>
+          <div class="slot" data-game="holder"><span class="slot-num" style="background-color: 857d0b;">1</span><span class="name" onclick="editName(this)">name</span></div>
         </div>
       </div>
     </div>
@@ -662,5 +662,89 @@
   </div>
 </div>
 </body>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAjntX01M02nK4lYsJZXr85iNC4sC2RyrY",
+  authDomain: "sports-e45dd.firebaseapp.com",
+  projectId: "sports-e45dd",
+  storageBucket: "sports-e45dd.appspot.com",
+  messagingSenderId: "589897055624",
+  appId: "1:589897055624:web:60c2169e4744b957f90e3d"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const isAdmin = false;
+
+const games = ["pingpong","badminton","basketball","sackrace","obstacle", "holder"];
+
+// =====================
+// 이름 수정
+// =====================
+window.editName = (el) => {
+  if (!isAdmin) return;
+
+  const current = el.innerText;
+
+  el.innerHTML = `<input type="text" value="${current}" style="width:80px;">`;
+
+  const input = el.querySelector("input");
+  input.focus();
+
+  input.addEventListener("blur", () => saveName(el, input.value));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") input.blur();
+  });
+};
+
+// =====================
+// 저장
+// =====================
+async function saveName(el, value) {
+  const slot = el.closest(".slot");
+
+  const game = slot.dataset.game;
+  const num = slot.querySelector(".slot-num").innerText;
+
+  el.innerText = value;
+
+  await setDoc(doc(db, "team_red", game), {
+    slots: {
+      [num]: value
+    }
+  }, { merge: true });
+}
+
+// =====================
+// 실시간 sync (🔥 중요 수정)
+// =====================
+games.forEach(game => {
+  onSnapshot(doc(db, "team_red", game), (snap) => {
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+
+    if (!data.slots) return;
+
+    document.querySelectorAll(`.slot[data-game="${game}"]`).forEach(slot => {
+      const num = slot.querySelector(".slot-num").innerText;
+      const nameEl = slot.querySelector(".name");
+
+      if (data.slots[num] !== undefined) {
+        nameEl.innerText = data.slots[num];
+      }
+    });
+  });
+});
+</script>
 </html>
 
