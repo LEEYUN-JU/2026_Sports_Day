@@ -323,42 +323,44 @@
     </div> 
   <div class="card-body" style="margin-top: -10px;">
     <div class="role-section">
-
       <!-- 1위 -->
-      <div class="rank-row" data-rank="1" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+      <div class="card-body rank-row" data-rank="1" data-game="pingpong"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+        
         <div><span class="slot-num gold">1</span></div>
 
         <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
         <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
 
-        <div class="slot score-box" onclick="enableEdit(this)">0</div>
-
+        <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
         <div class="score">点</div>
-      </div>
+      </div> 
 
       <!-- 2위 -->
-      <div class="rank-row" data-rank="2" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-        <div><span class="slot-num silver">1</span></div>
+      <div class="card-body rank-row" data-rank="2" data-game="pingpong"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+        
+        <div><span class="slot-num silver">2</span></div>
 
         <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
         <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
 
-        <div class="slot score-box" onclick="enableEdit(this)">0</div>
-
+        <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
         <div class="score">点</div>
-      </div>
+      </div> 
 
       <!-- 3위 -->
-      <div class="rank-row" data-rank="3" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-        <div><span class="slot-num brown">1</span></div>
+      <div class="card-body rank-row" data-rank="3" data-game="pingpong"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+        
+        <div><span class="slot-num brown">3</span></div>
 
         <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
         <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
 
-        <div class="slot score-box" onclick="enableEdit(this)">0</div>
-
+        <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
         <div class="score">点</div>
-      </div>
+      </div>    
 
     </div>
   </div>    
@@ -425,18 +427,23 @@
       <div class="ev-title">バスケ</div>
       <span class="score-chip">3pt</span>
     </div>
-    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+    <div class="card-body" data-rank="1" data-game="basketball" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
       <div><span class="role-label rl-u">スコア</span></div>
     </div>   
     <div class="card-body" style="margin-top: -10px;">
       <div class="role-section">
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: gold;">1</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
-          </div>          
+        <!-- 1위 -->
+        <div class="card-body rank-row" data-rank="1" data-game="basketball"
+          style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+          
+          <div><span class="slot-num gold">1</span></div>
+
+          <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+          <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+          <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+          <div class="score">点</div>
+        </div>          
       </div>
     </div>    
   </div>
@@ -451,13 +458,18 @@
     </div>   
     <div class="card-body" style="margin-top: -10px;">
       <div class="role-section">
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: gold;">1</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
-          </div>            
+          <!-- 1위 -->
+          <div class="card-body rank-row" data-rank="1" data-game="sackrace"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num gold">1</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
+          </div>           
       </div>
     </div>    
   </div>
@@ -472,13 +484,18 @@
     </div>   
     <div class="card-body" style="margin-top: -10px;">
       <div class="role-section">
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: gold;">1</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
-          </div>          
+          <!-- 1위 -->
+          <div class="card-body rank-row" data-rank="1" data-game="tugofwar"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num gold">1</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
+          </div>             
       </div>
     </div>    
   </div>
@@ -493,13 +510,18 @@
     </div>   
     <div class="card-body" style="margin-top: -10px;">
       <div class="role-section">
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: gold;">1</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
-          </div>            
+          <!-- 1위 -->
+          <div class="card-body rank-row" data-rank="1" data-game="dodgeball"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num gold">1</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
+          </div>             
       </div>
     </div>    
   </div>
@@ -514,12 +536,17 @@
     </div>   
     <div class="card-body" style="margin-top: -10px;">
       <div class="role-section">
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: gold;">1</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
+          <!-- 1위 -->
+          <div class="card-body rank-row" data-rank="1" data-game="relay"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num gold">1</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
           </div>            
       </div>
     </div>    
@@ -535,26 +562,43 @@
     </div>   
     <div class="card-body" style="margin-top: -10px;">
       <div class="role-section">
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: gold;">1</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
+          <!-- 1위 -->
+          <div class="card-body rank-row" data-rank="1" data-game="obstacle"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num gold">1</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
           </div> 
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: silver;">2</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
+
+          <!-- 2위 -->
+          <div class="card-body rank-row" data-rank="2" data-game="obstacle"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num silver">2</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
           </div> 
-          <div class="card-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
-            <div><span class="slot-num" style="font-size: 23px; font-weight: 900; width:28px;height:28px; background-color: brown;">3</span></div>
-            <div class="team-r" style="font-size: 15px;">紅</div>
-            <div class="team-w" style="font-size: 15px;">白</div>
-            <div class="slot" style="margin-left: 5px;"><span></span></div>
-            <div style="margin-left: 5px; font-weight: 900; font-size: 18;">点</div>
+
+          <!-- 3위 -->
+          <div class="card-body rank-row" data-rank="3" data-game="obstacle"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+            
+            <div><span class="slot-num brown">3</span></div>
+
+            <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+            <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+            <div class="slot score-box" style="margin-left: 5px;" onclick="enableEdit(this)">0</div>
+            <div class="score">点</div>
           </div>    
       </div>
     </div>    
@@ -584,84 +628,94 @@ const db = getFirestore(app);
 
 const isAdmin = true; // 👉 너만 true, 나머지는 false
 
-// 🔥 클릭하면 input으로 변환
+// =======================
+// 점수 수정
+// =======================
 window.enableEdit = (el) => {
   if (!isAdmin) return;
 
   const current = el.innerText;
 
-  el.innerHTML = `<input type="number" value="${current}" style="width:100%; border:none; outline:none; font-weight:700;">`;
+  el.innerHTML = `<input type="number" value="${current}" style="width:100%;border:none;">`;
 
   const input = el.querySelector("input");
   input.focus();
 
-  // 입력 끝나면 저장
-  input.addEventListener("blur", () => saveInline(el, input.value));
+  input.addEventListener("blur", () => saveScore(el, input.value));
   input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      input.blur();
-    }
+    if (e.key === "Enter") input.blur();
   });
 };
 
-// 🔥 저장
-async function saveInline(el, value) {
-  const row = el.parentElement;
-  const rank = row.dataset.rank;
+// =======================
+// 저장
+// =======================
+async function saveScore(el, value) {
+  const row = el.closest(".rank-row");
+
   const game = row.dataset.game;
-  const team = row.dataset.team;
+  const rank = row.dataset.rank;
+  const team = row.dataset.team || "red";
 
   el.innerText = value;
 
   await setDoc(doc(db, "scores", game), {
-    [`rank${rank}`]: {
-      team: team,
-      score: Number(value)
+    [rank]: {
+      score: Number(value),
+      team
     }
   }, { merge: true });
 }
 
+// =======================
 // 팀 선택
+// =======================
 window.selectTeam = (el, team) => {
   if (!isAdmin) return;
 
-  const row = el.parentElement;
+  const row = el.closest(".rank-row");
+
   row.dataset.team = team;
 
   row.querySelectorAll(".team-btn").forEach(btn => btn.style.opacity = "0.3");
   el.style.opacity = "1";
+
+  // 즉시 저장
+  saveScore(row.querySelector(".score-box"), row.querySelector(".score-box").innerText);
 };
 
-// 🔥 실시간 반영
-const games = ["pingpong", "badminton"];
+// =======================
+// 실시간 sync
+// =======================
+const games = ["pingpong","badminton","basketball","sackrace","tugofwar","dodgeball","relay","obstacle"];
 
 games.forEach(game => {
-  onSnapshot(doc(db, "scores", game), (docSnap) => {
-    if (!docSnap.exists()) return;
+  onSnapshot(doc(db, "scores", game), (snap) => {
+    if (!snap.exists()) return;
 
-    const data = docSnap.data();
+    const data = snap.data();
 
-    Object.keys(data).forEach(key => {
-      const rank = key.replace("rank","");
-      
+    Object.keys(data).forEach(rank => {
       const row = document.querySelector(
         `.rank-row[data-game="${game}"][data-rank="${rank}"]`
       );
 
       if (!row) return;
 
-      const info = data[key];
+      const info = data[rank];
 
-      row.querySelector(".score-box").innerText = info.score ?? 0;
+      const scoreBox = row.querySelector(".score-box");
+      scoreBox.innerText = info.score ?? 0;
 
-      row.dataset.team = info.team;
-      row.querySelectorAll(".team-btn").forEach(btn => btn.style.opacity = "0.3");
+      row.dataset.team = info.team || "red";
 
-      if (info.team === "red") {
-        row.children[1].style.opacity = "1";
-      } else if (info.team === "white") {
-        row.children[2].style.opacity = "1";
-      }
+      row.querySelectorAll(".team-btn").forEach(b => b.style.opacity = "0.3");
+
+      const active = row.querySelector(
+        `.team-btn[onclick*="${info.team}"]`
+      );
+
+      if (active) active.style.opacity = "1";
     });
   });
 });
