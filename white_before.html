@@ -92,16 +92,6 @@
   gap: 7px;
 }
 
-.card-all-member {
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px;
-}
-
-.card-right-member {
-  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px;
-}
-
-
-
 /* 카드 */
 .card {
   background: #fff;
@@ -137,7 +127,7 @@
 .role-section:last-child{margin-bottom:0;}
 .role-label{font-size:10px;font-weight:700;color:#fff;border-radius:5px;padding:1.5px 6px;display:inline-block;margin-bottom:3px;}
 .rl-p{background:#E24B4A;}
-.rl-w{background:#d3cece;}
+.rl-w{background:#b0b0b0;}
 .rl-r{background:#378ADD;}
 .rl-s{background:#BA7517;}
 .rl-g{background:#7bba17;}
@@ -156,7 +146,7 @@
 
 .slot-num{font-size:15px;font-weight:900;background:#E24B4A;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;margin-right:4px;flex-shrink:0;}
 .slot-num.b{background:#378ADD;}
-.slot-num.w{background:#d3cece;}
+.slot-num.w{background:#b0b0b0;}
 .slot-num.g{background:#7bba17;}
 .pair-slot{font-size:9px;font-weight:700;background:#EAF3DE;color:#27500A;border:1px solid #97C459;
   border-radius:6px;padding:3px 7px;min-height:22px;display:flex;align-items:center;}
@@ -193,19 +183,13 @@
 }
 
 .flag-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
 .back-btn {
   display: none;
-}
-
-.name {
-  font-size:13px;
-  color:#000000;
-  margin-top:4px;
 }
 
 @media (max-width: 768px) 
@@ -250,25 +234,6 @@
     flex-direction: column;
     gap: 7px;
   }
-
-  .name {
-    font-size:20px;
-    color:#000000;
-    margin-top:4px;
-  }
-
-  .card-all-member {
-    display: flex; 
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  .card-right-member {
-    display: flex; 
-    flex-direction: column;
-    gap: 7px;
-  }
-
 }
 </style>
 
@@ -379,7 +344,7 @@
 </div>
 
 <div class="title-box">
-  <div class="main-title" style="color: rgb(61, 47, 47);">メンバー表　役割分担<span>　<span style="color: #d3cece;">白 チーム</span></div>  
+  <div class="main-title" style="color: rgb(61, 47, 47);">メンバー表　役割分担<span>　<span style="color: rgb(184, 184, 184);">白 チーム</span></div>  
 </div>
 
 <div class="main-layout">
@@ -391,7 +356,7 @@
       <div class="grid-left-body">
       <div class="card-body" style="display:grid;grid-template-columns:5fr 4fr;gap:3px;">
         <div>        
-          <div class="name">
+          <div style="font-size:13px;color:#000000;margin-top:4px;">
             ルティ クエン<br>
             杉山 侑生<br>
             イム ジヒョク<br>
@@ -426,7 +391,7 @@
             フィンリー</div>   
           </div>
         <div>        
-          <div class="name">
+          <div style="font-size:13px;color:#000000;margin-top:4px;">
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/vn.svg"></span>クエン</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span>ゆう</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/kr.svg"></span>ジヒョク</div>
@@ -456,7 +421,7 @@
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span><span></span>ひかり</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span><span></span>ゆうや</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span><span></span>こうき</div>
-            <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/id.svg"></span><span></span>ジャスティン<br><br></div>
+            <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/id.svg"></span><span></span>ジャスティン</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/kr.svg"></span><span></span>スヨン</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/au.svg"></span><span></span>フィンリー</div>  
           </div>  
@@ -467,7 +432,7 @@
   </div>
 
   <div style="display: flex; flex-direction: column; gap:7px;">
-    <div class="card-all-member">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px;">
       <div class="card">
         <div class="card-head">
           <div class="ev-title">綱引き</div>
@@ -502,7 +467,7 @@
       </div>
     </div>
 
-    <div class="card-right-member">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px;">
       <div style="display: flex; flex-direction: column; gap: 7px;">        
         <div class="card" style="display:flex; flex-direction: column; gap: 7px; height: 100%;">
           <div class="card-head">

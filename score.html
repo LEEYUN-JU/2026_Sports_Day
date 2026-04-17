@@ -153,6 +153,7 @@
   border:1px dashed #B4B2A9;min-height:33px;display:flex;
   align-items:center;}
 
+.slot.score-box{font-size: 15px;}
 .slot.filled{background:#FCEBEB;color:#791F1F;border:1px solid #F09595;}
 .slot.filled-b{background:#E6F1FB;color:#0C447C;border:1px solid #85B7EB;}
 
@@ -269,6 +270,8 @@
     <button onclick="history.back()" location.href='index.html' class="back-btn">後</button>
 <div class="wrap">
 
+<div class="bunting"></div>
+
 <div class="bunting">
   <span class="flag" style="background:#E24B4A;"></span>
     <span class="flag" style="background:#EF9F27;"></span>
@@ -299,71 +302,6 @@
     <span class="flag" style="background:#EF9F27;"></span>
     <span class="flag" style="background:#639922;"></span>
     <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>    
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>    
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>    
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>    
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>    
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>    
-    <span class="flag" style="background:#D4537E;"></span>
-    <span class="flag" style="background:#E24B4A;"></span>
-    <span class="flag" style="background:#EF9F27;"></span>
-    <span class="flag" style="background:#639922;"></span>
-    <span class="flag" style="background:#378ADD;"></span>
 </div>
 
 <div class="title-box">
@@ -374,6 +312,58 @@
   
 <div class="grid-right">
   <div class="grid">
+
+    <div class="card">
+  <div class="card-head">
+    <div class="ev-title">卓球シングル</div>
+    <span class="score-chip">5・3・1pt</span>
+  </div> 
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div><span class="role-label rl-u">スコア</span></div>
+    </div> 
+  <div class="card-body" style="margin-top: -10px;">
+    <div class="role-section">
+
+      <!-- 1위 -->
+      <div class="rank-row" data-rank="1" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+        <div><span class="slot-num gold">1</span></div>
+
+        <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+        <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+        <div class="slot score-box" onclick="enableEdit(this)">0</div>
+
+        <div class="score">点</div>
+      </div>
+
+      <!-- 2위 -->
+      <div class="rank-row" data-rank="1" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+        <div><span class="slot-num silver">1</span></div>
+
+        <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+        <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+        <div class="slot score-box" onclick="enableEdit(this)">0</div>
+
+        <div class="score">点</div>
+      </div>
+
+      <!-- 3위 -->
+      <div class="rank-row" data-rank="1" style="display: grid; grid-template-columns: 1fr 1fr 1fr 3fr 1fr; gap: 5px;">
+        <div><span class="slot-num brown">1</span></div>
+
+        <div class="team-r big team-btn" onclick="selectTeam(this,'red')">紅</div>
+        <div class="team-w big team-btn" onclick="selectTeam(this,'white')">白</div>
+
+        <div class="slot score-box" onclick="enableEdit(this)">0</div>
+
+        <div class="score">点</div>
+      </div>
+
+    </div>
+  </div>    
+</div>
+
   <div class="card">
     <div class="card-head">
       <div class="ev-title">卓球シングル</div>
@@ -409,7 +399,7 @@
     </div>    
   </div>
 
-  <div class="card" style="height: 100%;">
+  <div class="card">
     <div class="card-head">
       <div class="ev-title">バドミントンシングル</div>
       <span class="score-chip">5・3・1pt</span>
@@ -588,4 +578,99 @@
 </div>
 </div>
 </body>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import { getFirestore, doc, setDoc, onSnapshot } 
+from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAjntX01M02nK4lYsJZXr85iNC4sC2RyrY",
+    authDomain: "sports-e45dd.firebaseapp.com",
+    projectId: "sports-e45dd",
+    storageBucket: "sports-e45dd.firebasestorage.app",
+    messagingSenderId: "589897055624",
+    appId: "1:589897055624:web:60c2169e4744b957f90e3d"
+  };
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const isAdmin = true; // 👉 너만 true, 나머지는 false
+
+// 🔥 클릭하면 input으로 변환
+window.enableEdit = (el) => {
+  if (!isAdmin) return;
+
+  const current = el.innerText;
+
+  el.innerHTML = `<input type="number" value="${current}" style="width:100%; border:none; outline:none; font-weight:700;">`;
+
+  const input = el.querySelector("input");
+  input.focus();
+
+  // 입력 끝나면 저장
+  input.addEventListener("blur", () => saveInline(el, input.value));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      input.blur();
+    }
+  });
+};
+
+// 🔥 저장
+async function saveInline(el, value) {
+  const row = el.parentElement;
+  const rank = row.dataset.rank;
+  const game = "pingpong";
+  const team = row.dataset.team;
+
+  el.innerText = value;
+
+  await setDoc(doc(db, "scores", game), {
+    [`rank${rank}`]: {
+      team: team,
+      score: Number(value)
+    }
+  }, { merge: true });
+}
+
+// 팀 선택
+window.selectTeam = (el, team) => {
+  if (!isAdmin) return;
+
+  const row = el.parentElement;
+  row.dataset.team = team;
+
+  row.querySelectorAll(".team-btn").forEach(btn => btn.style.opacity = "0.3");
+  el.style.opacity = "1";
+};
+
+// 🔥 실시간 반영
+onSnapshot(doc(db, "scores", "pingpong"), (docSnap) => {
+  if (docSnap.exists()) {
+    const data = docSnap.data();
+
+    Object.keys(data).forEach(key => {
+      const rank = key.replace("rank","");
+      const row = document.querySelector(`.rank-row[data-rank="${rank}"]`);
+
+      if (!row) return;
+
+      const info = data[key];
+
+      row.querySelector(".score-box").innerText = info.score;
+
+      row.dataset.team = info.team;
+      row.querySelectorAll(".team-btn").forEach(btn => btn.style.opacity = "0.3");
+
+      if (info.team === "red") {
+        row.children[1].style.opacity = "1";
+      } else {
+        row.children[2].style.opacity = "1";
+      }
+    });
+  }
+});
+</script>
 </html>
