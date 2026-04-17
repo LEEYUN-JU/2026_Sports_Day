@@ -1,0 +1,482 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .schedule {
+    display: flex; /* 가로 배치 */
+    gap: 10px;
+  }
+  .col {
+    flex: 1; /* 반반 나눔 */
+  }
+  .wrap{
+    font-family:'M PLUS Rounded 1c',sans-serif;
+    background:#EAF6FB;
+    padding:14px 12px 16px;
+    max-width:1600px;
+    margin:0 auto;
+    border-radius:16px;
+  }
+  .bunting{display:flex;justify-content:center;gap:0;margin-bottom:6px;line-height:1;}
+  .flag{
+    width:20px;height:20px;clip-path:polygon(0 0,100% 0,50% 100%);
+    display:inline-block;margin:0 2px;
+  }
+  .title-box{
+    background:#fff;
+    border-radius:14px;
+    text-align:center;
+    padding:10px 8px 8px;
+    margin-bottom:10px;
+    border:2px solid #B5D4F4;
+  }
+  .main-title{
+    font-size:60px;font-weight:900;
+    letter-spacing:0.05em;
+    color:#393939;
+    line-height:1.1;
+  }
+  .main-title span{color:#378ADD;}
+  .sub-date{
+    font-size:11px;font-weight:700;color:#185FA5;
+    background:#E6F1FB;border-radius:20px;
+    padding:3px 12px;display:inline-block;margin-top:5px;
+  }
+  .section-tag{
+    display:inline-block;
+    font-size:10px;font-weight:700;
+    padding:3px 10px;border-radius:20px;
+    margin:6px 0 5px;
+    letter-spacing:0.05em;
+  }
+  .tag-am{background:#FAC775;color:#633806;}
+  .tag-pm{background:#9FE1CB;color:#085041;}
+
+  .row{
+    display:grid;
+    align-items:start;
+    grid-template-columns:60px 1fr;
+    grid-template-rows:auto auto;  /* 2줄 */    
+    gap:2px 6px;
+    background:#fff;
+    border-radius:10px;
+    padding:7px 9px;
+    margin-bottom:5px;
+    border:1.5px solid #D8EEF9;
+  }
+  .row:hover{border-color:#85B7EB;}
+  .time{
+    grid-column:1; grid-row:1;
+    font-size:16px;font-weight:900;
+    color:#185FA5;white-space:nowrap;
+    padding-top:1px;
+    padding-left:3px;
+  }
+  .place-pill{
+    align-self:start;
+    align-items:start; /* 🔥 이거 추가 */
+    grid-column:1; grid-row:2;
+    font-size:9px;font-weight:700;
+    padding:2px 5px;border-radius:6px;
+    text-align:center;white-space:nowrap;
+    margin-top:2px;
+  }
+
+  .row > div:last-child{
+    grid-column:2;
+    grid-row:1 / span 4; /* 내용은 두 줄 차지 */
+  }
+  .pl-gym{background:#E6F1FB;color:#0C447C;}
+  .pl-ground{background:#EAF3DE;color:#27500A;}
+  .pl-none{background:#F1EFE8;color:#444441;}
+
+  .ev-name{
+    font-size:17px;font-weight:700;color:#1a1a1a;
+    line-height:1.3;
+  }
+  .ev-note{
+    font-size:13px;color:#5F5E5A;
+    padding-top: 3px;
+    line-height:1.4;margin-top:2px;
+  }
+  .score-chip{
+    display:inline-block;font-size:10px;font-weight:700;
+    background:#EEEDFE;color:#3C3489;
+    border-radius:4px;padding:1px 5px;
+    margin-left:4px;vertical-align:middle;
+  }
+  .all-member{
+    display:inline-block;font-size:10px;font-weight:700;
+    background:#fdedfe;color:#df1bbe;
+    border-radius:4px;padding:1px 5px;
+    margin-left:4px;vertical-align:middle;
+  }
+  .event-icon{
+    display:inline-block;width:14px;height:14px;
+    border-radius:50%;font-size:10px;font-weight:700;
+    background:#378ADD;color:#fff;
+    text-align:center;line-height:14px;
+    margin-right:3px;vertical-align:middle;
+    flex-shrink:0;
+  }
+  .icon-sp{background:#ffffff;}
+  .icon-op{background:#378ADD;}
+  .icon-br{background:#888780;}
+  .icon-fd{background:#639922;}
+  .icon-pt{background:#BA7517;}
+
+  .footer{
+    margin-top:8px;
+    background:#fff;border-radius:10px;
+    border:1.5px dashed #85B7EB;
+    padding:6px 10px;
+    display:flex;gap:8px;align-items:center;
+    font-size:9.5px;color:#5F5E5A;
+  }
+  .team-r{background:#FCEBEB;color:#A32D2D;font-weight:700;padding:3px 8px;border-radius:6px;font-size:10px;border:1px solid #F09595;}
+  .team-w{background:#F1EFE8;color:#444441;font-weight:700;padding:3px 8px;border-radius:6px;font-size:10px;border:1px solid #B4B2A9;}
+  .note-txt{font-size:9px;color:#888780;margin-left:auto;}
+</style>
+
+<div class="wrap">
+
+  <div class="bunting">
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+  </div>
+
+  <div class="title-box">  
+    <div class="main-title"><span style="color:#E24B4A;">春</span>の<span style="color:#e9cf0a;">大</span><span style="color:#639922;">運</span><span style="color:#378ADD;">動</span><span style="color:#7f37dd;">会</span>:<span style="color:#e33a3a; text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;">紅</span><span style="color:#ffffff;  
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;">白</span><span style="color:#b3b3b3; font-size:60px;">対決！</span><span style="color:#787070; font-size:20px;"> <br/>～タイムスケジュール～</span>
+</div>
+  </div>
+
+  <div class="schedule">
+  <!-- 오전 -->
+  <div class="col">
+  <div class="section-tag tag-am">☀️ 午前の部</div>
+
+  <div class="row">
+    <div class="time">09:00</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">50m走タイム記録</div>
+      <div class="ev-note">早く着いた人から記録開始<br/>チーム分けの参考データになります</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">09:10</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">全員集合</div>
+      <div class="ev-note">概要説明（アルバート）<br/><span style="font-weight:900; color:#e33a3a;">必ず時間までに集合してください</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">09:15</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">チーム分け</div>
+      <div class="ev-note">リーダー（クエン・齊藤）がじゃんけんでメンバー獲得<br/>50m走タイムを参考に均等配分<br>「チーム分け布」と「名札」配布</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">09:25</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">チーム会議</div>
+      <div class="ev-note">簡単な自己紹介 <br>→ 種目ごとに選手・記録者・棒持ち係を決定</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">09:40</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">開会式</div>
+      <div class="ev-note">開会の挨拶（齊藤）→ ラジオ体操（河合）</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">10:00</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">
+        卓球シングル<span class="score-chip">5・3・1pt</span>
+      </div>
+      <div class="ev-note">各チーム4名・2台でトーナメント式<br/>選手4名＋記録者4名</div>
+      <div class="ev-name" style="margin-top:4px;">
+        バドミントン：シングル<span class="score-chip">5・3・1pt</span>
+      </div>
+      <div class="ev-note">各チーム4名・2台でトーナメント式<br/>選手4名＋記録者4名</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">11:00</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">片付け・点数集計・準備</div>
+      <div class="ev-note">
+        -
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">11:10</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">
+        綱引き<span class="score-chip">3pt</span><span class="all-member">全員参加</span>
+      </div>      
+      <div class="ev-note">3回実施・2点先取で勝ち</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">11:20</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">片付け・点数集計・準備</div>
+      <div class="ev-note">
+        -
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">11:30</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">
+        バスケ<span class="score-chip">3pt</span>
+      </div>
+      <div class="ev-note">各8名・7分×3セット・2セット先取。<br/>途中交代可、常に16名コート内が条件（記録者1名）</div>
+    </div>
+  </div>
+
+  
+
+  <div class="row">
+    <div class="time">12:00</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">
+        ドッジボール<span class="score-chip">3pt</span><span class="all-member">全員参加</span>
+      </div>
+      <div class="ev-note">コート内全員ヒットで勝ち<br/>ヒットされた人は外から敵を狙う（復活あり）</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">12:30</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">片付け・点数集計</div>
+      <div class="ev-note">
+        -
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+   <!-- 오후 -->
+  <div class="col">
+  <div class="row">
+    <div class="time">12:40</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div>
+        <div class="ev-name" style="display: flex; align-items: baseline;">
+          昼食
+          <span class="ev-note" style="font-size: 11px; text-align: left;"><span style="margin-left: 3px;"></span>※お弁当（飲み物込み）</span>
+        </div>
+      </div>
+      <div class="ev-note">上位チームから先に選べます<br/>ゴミは必ず分別してください<br/></div>
+    </div>
+  </div>
+  <div class="section-tag tag-pm" style="margin-top:4px;">🌿 午後の部</div>
+
+  <div class="row">
+    <div class="time">13:50</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">全員集合</div>
+      <div class="ev-note">
+        <span style="font-weight:900; color:#e33a3a;">必ず時間までに集合してください</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">14:00</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">
+        二人三脚<span class="score-chip">3pt</span>
+      </div>
+      <div class="ev-note">各チーム5組10名・バトン形式レース。<br/>足首を「チーム分け布」で縛って走る。</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">14:20</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">点数集計・準備</div>
+      <div class="ev-note" style="padding-top: 5px;">
+      -
+    </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">14:50</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">
+        障害物レース<span class="score-chip">5・3・1pt</span>
+      </div>
+      <div class="ev-note">4チーム・バトン形式／1人2種障害クリア×3人交代<br>種目：ピンポン運び・ケンケンパ・飴玉探し・借り物競争・ぐるぐるバット・パコポコポコ・パン食い<br/>棒持ち係1名必要</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">15:20</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">点数集計・準備</div>
+      <div class="ev-note">
+      -
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">15:40</div>
+    <div class="place-pill pl-ground">グラウンド</div>
+    <div>
+      <div class="ev-name">
+        リレー<span class="score-chip">5pt</span><span class="all-member">全員参加</span>
+      </div>
+      <div class="ev-note">紅白対抗レース！最後の大勝負！</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">16:00</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">片付け・最終点数集計</div>
+      <div class="ev-note">
+        -
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">16:15</div>
+    <div class="place-pill pl-gym">体育館</div>
+    <div>
+      <div class="ev-name">閉会式・点数発表・集金</div>
+      <div class="ev-note">閉会の挨拶と優勝発表（アルバート）<br/>集金（杉山）</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="time">16:30</div>
+    <div class="place-pill pl-none">—</div>
+    <div>
+      <div class="ev-name">解散・自由時間</div>
+      <div class="ev-note">帰宅もしくは打上げ会場に移動する人は自由時間</div>
+    </div>
+  </div>
+
+  <div class="row" style="border-color:#FAC775;">
+    <div class="time" style="color:#854F0B;">17:15</div>
+    <div class="place-pill" style="background:#FAEEDA;color:#633806;">萬来館</div>
+    <div>
+      <div class="ev-name" style="color:#854F0B;">打上げ（希望者のみ）</div>
+      <div class="ev-note">運営陣が移動を誘導します</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="note-txt">※時間は前後する場合があります<br/>※片付けは皆で手伝いましょう<br/>※紫は順位ずつ貰えるポイントです<br/>※怪我や急ぎの場合杉山まで連絡お願いします</span>
+  </div>
+  </div>
+  </div>
+
+</div>

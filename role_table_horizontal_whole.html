@@ -1,0 +1,632 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.wrap {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background: #EAF6FB;
+  padding: 12px 14px 14px;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+/* 깃발 */
+.bunting {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+
+.flag {
+  width: 16px;
+  height: 10px;
+  margin: 0 2px;
+  clip-path: polygon(0 0,100% 0,50% 100%);
+}
+
+/* 타이틀 */
+.title-box {
+  background: #fff;
+  border-radius: 14px;
+  text-align: center;
+  padding: 8px 8px 7px;
+  margin-bottom: 10px;
+  border: 2px solid #B5D4F4;
+}
+
+.main-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #E05C2A;
+  letter-spacing: 0.04em;
+}
+
+.main-title span {
+  color: #378ADD;
+}
+
+.sub {
+  font-size: 11px;
+  font-weight: 700;
+  color: #185FA5;
+  background: #E6F1FB;
+  border-radius: 20px;
+  padding: 3px 12px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* 그리드 */
+.main-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* 왼쪽 + 오른쪽 */
+  gap: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+
+.grid-wide,
+.grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-top: 7px;
+}
+
+.grid-left {
+  grid-row: 1 / span auto; /* 🔥 핵심 */
+}
+
+.grid-right {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* 카드 */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1.5px solid #D8EEF9;
+  overflow: hidden;
+}
+.card:hover{border-color:#85B7EB;}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 5px;
+  border-bottom: 1px dashed #D8EEF9;
+}
+
+.ev-num{width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}
+.ev-title {
+  font-size: 13px;
+  font-weight: 900;
+}
+.score-chip{font-size:10px;font-weight:700;background:#EEEDFE;color:#3C3489;border-radius:4px;padding:1px 5px;white-space:nowrap;}
+ .all-member{
+    display:inline-block;font-size:10px;font-weight:700;
+    background:#fdedfe;color:#df1bbe;
+    border-radius:4px;padding:1px 5px;
+    margin-left:1px;vertical-align:middle;
+  }
+.all-badge{font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:10px;background:#EAF3DE;color:#3B6D11;border:1px solid #97C459;margin-left:auto;}
+
+.card-body{padding:6px 8px 7px;}
+.role-section{margin-bottom:5px;}
+.role-section:last-child{margin-bottom:0;}
+.role-label{font-size:10px;font-weight:700;color:#fff;border-radius:5px;padding:1.5px 6px;display:inline-block;margin-bottom:3px;}
+.rl-p{background:#E24B4A;}
+.rl-w{background:#d3cece;}
+.rl-r{background:#378ADD;}
+.rl-s{background:#BA7517;}
+.rl-g{background:#7bba17;}
+.slots{display:flex;flex-direction:column;gap:3px;}
+.slots.r{display:flex;flex-direction:row;gap:3px;}
+
+.slot{font-size:9.5px;font-weight:700;
+  background:#F1EFE8;
+  border-radius:6px;
+  padding:3px 7px;color:#444441;
+  border:1px dashed #B4B2A9;min-height:33px;display:flex;
+  align-items:center;}
+
+.slot.filled{background:#FCEBEB;color:#791F1F;border:1px solid #F09595;}
+.slot.filled-b{background:#E6F1FB;color:#0C447C;border:1px solid #85B7EB;}
+
+.slot-num{font-size:15px;font-weight:900;background:#E24B4A;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;margin-right:4px;flex-shrink:0;}
+.slot-num.b{background:#378ADD;}
+.slot-num.w{background:#d3cece;}
+.slot-num.g{background:#7bba17;}
+.pair-slot{font-size:9px;font-weight:700;background:#EAF3DE;color:#27500A;border:1px solid #97C459;
+  border-radius:6px;padding:3px 7px;min-height:22px;display:flex;align-items:center;}
+
+.obs-grid{display:grid;grid-template-columns:1fr; gap:3px;margin-top:3px;}
+.obs-item{font-size:12px;color:#5F5E5A;background:#F1EFE8;border-radius:5px;padding:2px 6px;display:flex;align-items:center;gap:3px;}
+.obs-n{font-size:13px;font-weight:900;color:#854F0B;}
+
+.all-note{font-size:9.5px;color:#5F5E5A;padding:4px 2px;line-height:1.5;}
+
+.footer{margin-top:9px;background:#fff;border-radius:10px;border:1.5px dashed #85B7EB;padding:5px 10px;display:flex;gap:8px;align-items:center;}
+.team-r{background:#FCEBEB;color:#A32D2D;font-weight:700;padding:3px 8px;border-radius:6px;font-size:10px;border:1px solid #F09595;}
+.team-w{background:#F1EFE8;color:#444441;font-weight:700;padding:3px 8px;border-radius:6px;font-size:10px;border:1px solid #B4B2A9;}
+.note{font-size:9px;color:#888780;margin-left:auto;justify-content: flex-end;}
+</style>
+
+<div class="wrap">
+
+<div class="bunting">
+  <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>    
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>    
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>    
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>    
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>    
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>    
+    <span class="flag" style="background:#D4537E;"></span>
+    <span class="flag" style="background:#E24B4A;"></span>
+    <span class="flag" style="background:#EF9F27;"></span>
+    <span class="flag" style="background:#639922;"></span>
+    <span class="flag" style="background:#378ADD;"></span>
+</div>
+
+<div class="title-box">
+  <div class="main-title">メンバー表 <span>役割分担・点数記録</span></div>  
+</div>
+
+<div class="main-layout">
+<div class="grid-left">
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">選手リスト-名前（呼び方）</div>
+    </div>
+    <div class="grid-left-body">
+    <div class="card-body" style="display:grid;grid-template-columns:120px 100px;gap:3px;">
+      <div>        
+        <div style="font-size:10px;color:#000000;margin-top:4px;">
+          ルティ クエン<br>
+          杉山 侑生<br>
+          イム ジヒョク<br>
+          アルバート ルイス<br>
+          河合 真衣<br>
+          オウ シン<br>
+          イ ユンジュ<br>
+          イ インソン<br>
+          チン ヒウ<br>
+          ロ ウンホウ<br>
+          橋爪 圭次郎<br>
+          鈴木 渉平<br>
+          熊木 栞<br>
+          平松 侑隼<br>
+          亀井 聡太<br>
+          齊藤 輝起<br>
+          安田 結衣<br>
+          松岡 将太<br>
+          赤坂 美歩<br>
+          モウ キンコウ<br>
+          アン イェファル<br>
+          井谷 仁美<br>
+          牛島 詩乃<br>
+          角谷 優花<br>
+          柏崎 陽太<br>
+          西澤 実来<br>
+          森 美咲<br>
+          田野 陽光<br>
+          横井 優哉<br>
+          品川 光輝<br>
+          ジャスティン メナルディ<br>
+          キム スヨン</div>        
+        </div>
+      <div>        
+        <div style="font-size:10px;color:#000000;margin-top:4px;">
+          クエン<br>          
+          ゆう<br>
+          ジヒョク<br>
+          アルバート<br>          
+          まい<br>
+          オウさん<br>
+          ユンジュ<br>
+          インソン<br>
+          チンさん<br>
+          ロさん<br>
+          けいじろう<br>
+          しょうへい<br>
+          しおり<br>
+          ゆきと<br>
+          そうた<br>
+          てるき<br>
+          ゆい<br>
+          しょうた<br>
+          みほ<br>
+          モウさん<br>
+          イェファル<br>
+          ひとみ<br>
+          しの<br>
+          ゆうか<br>
+          ようた<br>
+          みく<br>
+          みさき<br>
+          ひかり<br>
+          ゆうや<br>
+          こうき<br>
+          ジャスティン<br>
+          スヨン</div>
+      </div>
+      <div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">綱引き</div>
+      <span class="score-chip">3pt</span>
+      <span class="all-member">全員参加</span>
+    </div>
+    <div class="card-body" style="display: grid; grid-template-columns: 5fr 1fr 1fr; grid-template-rows: 1fr;">
+      <div class="all-note">3回実施・2点先取で勝ち</div>
+      <div class="team-r" style="margin-left: 5px;">紅</div>
+      <div class="team-w" style="margin-left: 5px;">白</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">ドッジボール</div>
+      <span class="score-chip">3pt</span>
+      <span class="all-member">全員参加</span>
+    </div>
+    <div class="card-body" style="display: grid; grid-template-columns: 5fr 1fr 1fr; grid-template-rows: 1fr;">
+      <div class="all-note">3回実施・2点先取で勝ち</div>
+      <div class="team-r" style="margin-left: 5px;">紅</div>
+      <div class="team-w" style="margin-left: 5px;">白</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">リレー</div>
+      <span class="score-chip">5pt</span>
+      <span class="all-member">全員参加</span>
+    </div>
+    <div class="card-body" style="display: grid; grid-template-columns: 5fr 1fr 1fr; grid-template-rows: 1fr;">
+      <div class="all-note">1回実施・1点先取で勝ち</div>
+      <div class="team-r" style="margin-left: 5px;">紅</div>
+      <div class="team-w" style="margin-left: 5px;">白</div>
+    </div>    
+  </div>
+</div>
+  
+<div class="grid-right">
+  <div class="grid">
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">卓球シングル</div>
+      <span class="score-chip">5・3・1pt</span>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div class="role-section">
+        <span class="role-label rl-p">紅 2名</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num">1</span></div>
+          <div class="slot"><span class="slot-num">2</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-w">白 2名</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num w">1</span></div>
+          <div class="slot"><span class="slot-num w">2</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="margin-top: -10px;">
+      <span class="note">※空欄はチーム会議（9:25〜）で記入</span>
+    </div> 
+    <div class="card-body" style="margin-top: -10px;">
+      <span class="note">※空欄はチーム会議（9:25〜）で記入</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">バドミントンシングル</div>
+      <span class="score-chip">5・3・1pt</span>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div class="role-section">
+        <span class="role-label rl-p">紅 2名</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num">1</span></div>
+          <div class="slot"><span class="slot-num">2</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-w">白 2名</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num w">1</span></div>
+          <div class="slot"><span class="slot-num w">2</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="margin-top: -10px;">
+      <span class="note">※空欄はチーム会議（9:25〜）で記入</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">バスケ</div>
+      <span class="score-chip">3pt</span>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div class="role-section">
+        <span class="role-label rl-p">紅 8名</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num">1</span></div>
+          <div class="slot"><span class="slot-num">2</span></div>
+          <div class="slot"><span class="slot-num">3</span></div>
+          <div class="slot"><span class="slot-num">4</span></div>
+          <div class="slot"><span class="slot-num">5</span></div>
+          <div class="slot"><span class="slot-num">6</span></div>
+          <div class="slot"><span class="slot-num">7</span></div>
+          <div class="slot"><span class="slot-num">8</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-w">白 8名</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num w">1</span></div>
+          <div class="slot"><span class="slot-num w">2</span></div>
+          <div class="slot"><span class="slot-num w">3</span></div>
+          <div class="slot"><span class="slot-num w">4</span></div>
+          <div class="slot"><span class="slot-num w">5</span></div>
+          <div class="slot"><span class="slot-num w">6</span></div>
+          <div class="slot"><span class="slot-num w">7</span></div>
+          <div class="slot"><span class="slot-num w">8</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>        
+      </div>      
+    </div>
+    <div class="card-body"style="margin-top: -10px;">
+      <span class="note">※チーム内で交代OK<br/>※空欄はチーム会議（9:25〜）で記入</span>
+    </div>    
+  </div>
+
+  <div class="card" style="display:flex; flex-direction: column;">
+    <div class="card-head">
+      <div class="ev-title">二人三脚</div>
+      <span class="score-chip">3pt</span>
+    </div>
+    <div class="card-body">
+      <div class="role-section">
+        <span class="role-label rl-g">男女ペア</span>
+        <div class="slots r" style="display:grid;grid-template-columns:1fr 1fr; gap:3px;">
+          <div class="slot"><span class="slot-num g">1</span></div>
+          <div class="slot"><span class="slot-num g">1</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #1D9E75;">2</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #1D9E75;">2</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #0e7c59;">3</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #0e7c59;">3</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #0d6e50;">4</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #0d6e50;">4</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #065038;">5</span></div>
+          <div class="slot"><span class="slot-num g" style="background: #065038;">5</span></div>
+        </div>
+      </div>      
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+    <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>
+      <div class="role-section">
+        <span class="role-label rl-r">記録者</span>
+        <div class="slots">
+          <div class="slot"><span class="slot-num b">1</span></div>
+        </div>
+      </div>      
+    </div>
+    <div class="card-body" style="margin-top: -10px;"><span class="note">※「チーム分け布」で足首を縛ってバトン形式<br/>※空欄はチーム会議（9:25〜）で記入</span>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:7px;">
+  <div class="card">
+    <div class="card-head">
+      <div class="ev-title">障害物レース</div>
+      <span class="score-chip">5・3・1pt</span>
+      <div style="font-size:9px;color:#5F5E5A;margin-left:6px;">選手6名 + 棒持ち1名</div>
+    </div>
+    
+    <div class="card-body" style="display:grid;grid-template-columns:3fr 1fr; gap:8px;">
+      <div>
+        <span class="role-label rl-p">紅 6名</span>
+        <div class="slots" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:3px; margin-top:3px;">
+          <div class="slot"><span class="slot-num">1</span></div>
+          <div class="slot"><span class="slot-num">2</span></div>
+          <div class="slot"><span class="slot-num">3</span></div>
+          <div class="slot"><span class="slot-num">4</span></div>
+          <div class="slot"><span class="slot-num">5</span></div>
+          <div class="slot"><span class="slot-num">6</span></div>
+        </div>
+        <div style="margin-top: 3px;">
+        <span class="role-label rl-w">白 2名</span>
+        <div class="slots" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:3px; margin-top:3px;">
+          <div class="slot"><span class="slot-num w">1</span></div>
+          <div class="slot"><span class="slot-num w">2</span></div>
+          <div class="slot"><span class="slot-num w">3</span></div>
+          <div class="slot"><span class="slot-num w">4</span></div>
+          <div class="slot"><span class="slot-num w">5</span></div>
+          <div class="slot"><span class="slot-num w">6</span></div>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; margin-top: 3px; gap: 3px;">
+          <div style="display: gird; grid-template-rows: 1fr 1fr; margin-top: 3px;">
+            <span class="role-label rl-s" style="margin-top: 3px;">棒持ち</span>
+            <div class="slot"><span class="slot-num" style="background:#BA7517;">1</span></div>
+          </div>
+          <div style="display: gird; grid-template-rows: 1fr 1fr; margin-top: 3px;">
+            <div style="margin-top: 24px;"> </div>
+            <div class="slot"><span class="slot-num" style="background:#BA7517;">2</span></div>
+          </div>
+          <div style="display: gird; grid-template-rows: 1fr 1fr; margin-top: 3px;">
+            <span class="role-label rl-r" style="margin-top: 3px;">記録者</span>
+            <div class="slot"><span class="slot-num b">1</span></div>
+          </div>
+          <div style="display: gird; grid-template-rows: 1fr 1fr; margin-top: 3px;">
+            <div style="margin-top: 24px;"> </div>
+            <div class="slot"><span class="slot-num b">2</span></div>
+          </div>
+          </div>
+        <div style="font-size:8.5px;color:#888780;margin-top:4px;">パン食い競争時に棒を持つ</div>
+      </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#854F0B;margin-bottom:3px;">障害物の順番</div>
+        <div class="obs-grid">
+          <div class="obs-item"><span class="obs-n">①</span>ピンポン運び＋ケンケンパ</div>
+          <div class="obs-item"><span class="obs-n">②</span>飴玉探し</div>
+          <div class="obs-item"><span class="obs-n">③</span>借り物競争</div>
+          <div class="obs-item"><span class="obs-n">④</span>ぐるぐるバット</div>
+          <div class="obs-item"><span class="obs-n">⑤</span>パコポコポコ</div>
+          <div class="obs-item"><span class="obs-n">⑥</span>パン食い競争</div>
+        </div>
+        <div style="font-size:10px;color:#5F5E5A;margin-top:4px;">1人2種障害クリア → バトン交代</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
