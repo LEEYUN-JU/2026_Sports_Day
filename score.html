@@ -1,5 +1,39 @@
 
-<style>
+<style>  
+  @media (max-width: 768px) {
+  .wrap {
+    flex-direction: column; /* 2열 → 1열 */
+  }
+
+  .wrap {
+    padding: 10px 8px;
+  }
+
+  .ev-name {
+    font-size: 15px;
+  }
+  .ev-note {
+    font-size: 12px;
+  }
+
+  .main-title {
+    font-size: 10px;
+    color: #3C3489;
+;
+  }
+
+  .main-title .big {
+    font-size: 20px;
+    color: darkgray;
+  }
+
+  .main-title .small {
+    font-size: 8px;
+    color: rgb(167, 44, 44);
+  }
+
+  }
+
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
 
 * {
@@ -40,9 +74,9 @@
 }
 
 .main-title {
-  font-size: 20px;
+  font-size: 50px;
   font-weight: 900;
-  color: #E05C2A;
+  color: #3C3489;
   letter-spacing: 0.04em;
 }
 
@@ -166,6 +200,12 @@
 .note{font-size:9px;color:#888780;margin-left:auto;justify-content: flex-end;}
 </style>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
 <div class="wrap">
 
 <div class="bunting">
@@ -266,7 +306,7 @@
 </div>
 
 <div class="title-box">
-  <div class="main-title"><span style="color: #3C3489; font-size: 50px;">点数記録</span></div>  
+  <div class="main-title">点数記録</div>  
 </div>
 
 <div class="main-layout">
@@ -486,3 +526,5 @@
 
 </div>
 </div>
+</body>
+</html>
