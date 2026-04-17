@@ -596,7 +596,7 @@ from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const isAdmin = false; // 👉 너만 true, 나머지는 false
+const isAdmin = true; // 👉 너만 true, 나머지는 false
 
 // 🔥 클릭하면 input으로 변환
 window.enableEdit = (el) => {
