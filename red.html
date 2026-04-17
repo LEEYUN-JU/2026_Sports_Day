@@ -92,6 +92,16 @@
   gap: 7px;
 }
 
+.card-all-member {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px;
+}
+
+.card-right-member {
+  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px;
+}
+
+
+
 /* 카드 */
 .card {
   background: #fff;
@@ -183,12 +193,92 @@
 }
 
 .flag-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
 }
+
+.back-btn {
+  display: none;
+}
+
+.name {
+  font-size:13px;
+  color:#000000;
+  margin-top:4px;
+}
+
+@media (max-width: 768px) 
+{
+  .wrap {
+    flex-direction: row; /* 2열 → 1열 */
+  }
+
+  .back-btn {
+    display: block;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr; /* ✅ 한 줄 */
+    gap: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid #D8EEF9;
+    overflow: hidden;
+  }
+
+  .grid-right {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .name {
+    font-size:20px;
+    color:#000000;
+    margin-top:4px;
+  }
+
+  .card-all-member {
+    display: flex; 
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .card-right-member {
+    display: flex; 
+    flex-direction: column;
+    gap: 7px;
+  }
+
+}
 </style>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <button onclick="history.back()" location.href='index.html' class="back-btn">後</button>
 <div class="wrap">
 
 <div class="bunting">
@@ -301,7 +391,7 @@
       <div class="grid-left-body">
       <div class="card-body" style="display:grid;grid-template-columns:5fr 4fr;gap:3px;">
         <div>        
-          <div style="font-size:13px;color:#000000;margin-top:4px;">
+          <div class="name">
             ルティ クエン<br>
             杉山 侑生<br>
             イム ジヒョク<br>
@@ -336,7 +426,7 @@
             フィンリー</div>   
           </div>
         <div>        
-          <div style="font-size:13px;color:#000000;margin-top:4px;">
+          <div class="name">
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/vn.svg"></span>クエン</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span>ゆう</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/kr.svg"></span>ジヒョク</div>
@@ -366,7 +456,7 @@
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span><span></span>ひかり</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span><span></span>ゆうや</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/jp.svg"></span><span></span>こうき</div>
-            <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/id.svg"></span><span></span>ジャスティン</div>
+            <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/id.svg"></span><span></span>ジャスティン<br><br></div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/kr.svg"></span><span></span>スヨン</div>
             <div class="flag-item"><span class="flag-circle"><img src="https://flagcdn.com/au.svg"></span><span></span>フィンリー</div>  
           </div>  
@@ -377,7 +467,7 @@
   </div>
 
   <div style="display: flex; flex-direction: column; gap:7px;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px;">
+    <div class="card-all-member">
       <div class="card">
         <div class="card-head">
           <div class="ev-title">綱引き</div>
@@ -412,7 +502,7 @@
       </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px;">
+    <div class="card-right-member">
       <div style="display: flex; flex-direction: column; gap: 7px;">        
         <div class="card" style="display:flex; flex-direction: column; gap: 7px; height: 100%;">
           <div class="card-head">
@@ -571,3 +661,6 @@
 
   </div>
 </div>
+</body>
+</html>
+

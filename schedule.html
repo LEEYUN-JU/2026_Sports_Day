@@ -1,38 +1,6 @@
 
 <style>
-  @media (max-width: 768px) {
-  .schedule {
-    flex-direction: column; /* 2열 → 1열 */
-  }
-
-  .wrap {
-    padding: 10px 8px;
-  }
-
-  .ev-name {
-    font-size: 15px;
-  }
-  .ev-note {
-    font-size: 12px;
-  }
-
-  .main-title {
-    font-size: 10px;
-    color: darkgray;
-;
-  }
-
-  .main-title .big {
-    font-size: 20px;
-    color: darkgray;
-  }
-
-  .main-title .small {
-    font-size: 8px;
-    color: rgb(167, 44, 44);
-  }
-
-  }
+ 
 
   
 
@@ -179,6 +147,58 @@
   .team-r{background:#FCEBEB;color:#A32D2D;font-weight:700;padding:3px 8px;border-radius:6px;font-size:10px;border:1px solid #F09595;}
   .team-w{background:#F1EFE8;color:#444441;font-weight:700;padding:3px 8px;border-radius:6px;font-size:10px;border:1px solid #B4B2A9;}
   .note-txt{font-size:9px;color:#888780;margin-left:auto;}
+  
+  .back-btn {
+    display: none;
+  }
+
+   @media (max-width: 768px) {
+  .schedule {
+    flex-direction: column; /* 2열 → 1열 */
+  }
+
+  .wrap {
+    padding: 10px 8px;
+  }
+
+  .ev-name {
+    font-size: 15px;
+  }
+  .ev-note {
+    font-size: 12px;
+  }
+
+  .main-title {
+    font-size: 10px;
+    color: darkgray;
+;
+  }
+
+  .main-title .big {
+    font-size: 20px;
+    color: darkgray;
+  }
+
+  .main-title .small {
+    font-size: 8px;
+    color: rgb(167, 44, 44);
+  }
+
+  .back-btn {
+    display: block;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+
+  }
 </style>
 
 <!DOCTYPE html>
@@ -187,6 +207,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <button onclick="history.back()" location.href='index.html' class="back-btn">後</button>
 <div class="wrap">
 
   <div class="bunting">
