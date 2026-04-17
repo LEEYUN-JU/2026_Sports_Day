@@ -1,5 +1,37 @@
 
 <style>
+  @media (max-width: 768px) {
+  .schedule {
+    flex-direction: column; /* 2열 → 1열 */
+  }
+
+  .wrap {
+    padding: 10px 8px;
+  }
+
+  .ev-name {
+    font-size: 15px;
+  }
+  .ev-note {
+    font-size: 12px;
+  }
+
+  .main-title {
+    font-size: 12px;
+  }
+
+  .main-title .big {
+    font-size: 20px;
+  }
+
+  .main-title .small {
+    font-size: 14px;
+  }
+
+  }
+
+  
+
   @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   .schedule {
@@ -31,10 +63,20 @@
     border:2px solid #B5D4F4;
   }
   .main-title{
-    font-size:60px;font-weight:900;
+    font-size:48px;font-weight:900;
     letter-spacing:0.05em;
     color:#393939;
     line-height:1.1;
+  }
+
+  .main-title .big {
+    font-size: 20px;
+    color: lightgray;
+  }
+
+  .main-title .small {
+    font-size: 20px;
+    color: gray;
   }
   .main-title span{color:#378ADD;}
   .sub-date{
@@ -138,6 +180,12 @@
   .note-txt{font-size:9px;color:#888780;margin-left:auto;}
 </style>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
 <div class="wrap">
 
   <div class="bunting">
@@ -204,7 +252,7 @@
   </div>
 
   <div class="title-box">  
-    <div class="main-title"><span style="color:#E24B4A;">春</span>の<span style="color:#e9cf0a;">大</span><span style="color:#639922;">運</span><span style="color:#378ADD;">動</span><span style="color:#7f37dd;">会</span>:<span style="color:#e33a3a; text-shadow:
+    <div class="main-title"><span class="main-title big" style="color:#E24B4A;">春</span><span class="main-title big" style="color:darkgray;">の</span><span class="big" style="color:#e9cf0a;">大</span><span style="color:#639922;">運</span><span style="color:#378ADD;">動</span><span style="color:#7f37dd;">会</span>:<span style="color:#e33a3a; text-shadow:
     -1px -1px 0 #000,
      1px -1px 0 #000,
     -1px  1px 0 #000,
@@ -213,7 +261,7 @@
     -1px -1px 0 #000,
      1px -1px 0 #000,
     -1px  1px 0 #000,
-     1px  1px 0 #000;">白</span><span style="color:#b3b3b3; font-size:60px;">対決！</span><span style="color:#787070; font-size:20px;"> <br/>～タイムスケジュール～</span>
+     1px  1px 0 #000;">白</span><span class="big">対決！</span><br/><span class="small">～タイムスケジュール～</span>
 </div>
   </div>
 
@@ -480,3 +528,5 @@
   </div>
 
 </div>
+</body>
+</html>
