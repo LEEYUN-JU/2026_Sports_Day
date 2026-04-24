@@ -9,13 +9,13 @@
 
 <br/>
 
-> **📄 [→ 프로젝트 상세 웹페이지 보기 (EN / JA / KO)](https://leeyun-ju.github.io/2026_Sports_Day/readme.html)**
+> **📄 [→ Project Information in html (EN / JA / KO)](https://leeyun-ju.github.io/2026_Sports_Day/readme.html)**
 
 <br/>
 
 | 🔴 Red Team | ⚪ White Team | ⚡ Firebase | 📱 Mobile |
 |:-----------:|:------------:|:-----------:|:---------:|
-| 홍팀 | 백팀 | Realtime DB | No install |
+| Html | Html | Realtime DB | OK |
 
 </div>
 
