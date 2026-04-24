@@ -1,6 +1,6 @@
 # 🏃‍♂️ 2026 Spring Sports Festival Mobile Flyer
 
-👉 [View Project Page](./readme.html)
+👉 [View Project Page](https://leeyun-ju.github.io/2026_Sports_Day/)
 
 ---
 
