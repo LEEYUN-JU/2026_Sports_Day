@@ -1,9 +1,7 @@
-For the first time ever
-Created for sports day on 2026
+# 🏃‍♂️ 2026 Spring Sports Festival Mobile Flyer
 
----------SERVER---------
-firebase
+👉 [View Project Page](./readme.html)
 
----------UI---------
-Html
+---
 
+Simple mobile-friendly web page for managing a sports festival.
