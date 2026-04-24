@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.lang-btns {
+  margin-bottom: 20px;
+}
+
+/* 기본은 숨김 */
+.lang {
+  display: none;
+}
+
+/* 📱 모바일 대응 */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
