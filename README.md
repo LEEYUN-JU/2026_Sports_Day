@@ -3,9 +3,9 @@
 # 🏃 2026 SPRING SPORTS FESTIVAL
 
 [![Firebase](https://img.shields.io/badge/Firebase-FF6D00?style=for-the-badge&logo=firebase&logoColor=white)](https://firebase.google.com)
-[![Mobile](https://img.shields.io/badge/Mobile--First-E8333A?style=for-the-badge&logo=googlechrome&logoColor=white)]()
-[![Users](https://img.shields.io/badge/30%2B_Concurrent_Users-F5C842?style=for-the-badge&logo=people&logoColor=black)]()
-[![No Install](https://img.shields.io/badge/No_App_Install-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white)]()
+[![Mobile](https://img.shields.io/badge/Mobile--First-E8333A?style=for-the-badge&logo=googlechrome&logoColor=white)]
+[![Users](https://img.shields.io/badge/30%2B_Concurrent_Users-F5C842?style=for-the-badge&logo=people&logoColor=black)]
+[![No Install](https://img.shields.io/badge/No_App_Install-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white)]
 
 <br/>
 
