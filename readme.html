@@ -1,41 +1,756 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sports Festival</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Spring Sports Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #e8333a;
+      --red-dark: #b8222a;
+      --white: #f5f0eb;
+      --black: #111010;
+      --track: #2a2320;
+      --accent: #f5c842;
+      --muted: #8a7f78;
+      --card-bg: #1c1815;
+      --border: rgba(245,200,66,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── TRACK LINES BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 60px,
+          rgba(245,200,66,0.04) 60px,
+          rgba(245,200,66,0.04) 61px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LANGUAGE BAR ── */
+    .lang-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      padding: 10px 24px;
+      background: rgba(17,16,16,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,200,66,0.12);
+    }
+
+    .lang-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(245,200,66,0.3);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--black);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 72px 24px 64px;
+      overflow: hidden;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s ease forwards;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 12vw, 100px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s ease forwards;
+    }
+
+    .hero-title span.red { color: var(--red); }
+
+    /* Decorative underline */
+    .hero-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 14px auto 0;
+      border-radius: 2px;
+    }
+
+    .hero-sub {
+      margin-top: 20px;
+      font-size: 15px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.35s ease forwards;
+    }
+
+    /* Floating badge */
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.45s ease forwards;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid;
+    }
+
+    .badge-red { border-color: var(--red); color: var(--red); background: rgba(232,51,58,0.08); }
+    .badge-yellow { border-color: var(--accent); color: var(--accent); background: rgba(245,200,66,0.08); }
+    .badge-muted { border-color: var(--muted); color: var(--muted); background: transparent; }
+
+    /* ── TRACK DIVIDER ── */
+    .track-divider {
+      position: relative;
+      z-index: 1;
+      height: 12px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--red) 0px, var(--red) 40px,
+        var(--white) 40px, var(--white) 80px
+      );
+      opacity: 0.85;
+    }
+
+    /* ── CONTENT SECTION ── */
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s 0.55s ease forwards;
+    }
+
+    /* ── PROJECT HEADER ── */
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 6vw, 42px);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.65;
+    }
+
+    /* ── CARD ── */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card:hover {
+      border-color: rgba(245,200,66,0.35);
+      transform: translateY(-2px);
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      border-radius: 3px 0 0 3px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .section-card:hover::before { opacity: 1; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: var(--white);
+    }
+
+    .card-body {
+      font-size: 13.5px;
+      color: rgba(245,240,235,0.72);
+      line-height: 1.7;
+    }
+
+    .card-body ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card-body ul li {
+      padding: 3px 0 3px 16px;
+      position: relative;
+    }
+
+    .card-body ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 5px;
+    }
+
+    .sub-section {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(245,200,66,0.08);
+    }
+
+    .sub-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    /* Team badges inline */
+    .team-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .team-red { background: rgba(232,51,58,0.15); color: #f07075; border: 1px solid rgba(232,51,58,0.3); }
+    .team-white { background: rgba(245,240,235,0.08); color: #c8c0b8; border: 1px solid rgba(245,240,235,0.2); }
+
+    /* Highlight chips */
+    .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .chip {
+      font-size: 11.5px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(245,200,66,0.08);
+      color: var(--accent);
+      border: 1px solid rgba(245,200,66,0.2);
+      font-weight: 500;
+    }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: rgba(138,127,120,0.5);
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(245,200,66,0.07);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .lang-bar { padding: 8px 14px; gap: 5px; }
+      .lang-btn { font-size: 11px; padding: 4px 10px; }
+      .hero { padding: 52px 18px 48px; }
+      .content { padding: 36px 16px 60px; }
+      .section-card { padding: 18px 18px; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── LANG VISIBILITY ── */
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+
+    .hero-multilang > * { display: none; }
+    .hero-multilang > *.active { display: block; }
+  </style>
 </head>
 <body>
 
-<!-- 언어 선택 버튼 -->
-<div class="lang-btns">
-  <button onclick="setLang('en')">English</button>
-  <button onclick="setLang('jp')">日本語</button>
-  <button onclick="setLang('kr')">한국어</button>
-</div>
+  <!-- LANGUAGE BAR -->
+  <nav class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ja')">JA</button>
+    <button class="lang-btn" onclick="setLang('ko')">KO</button>
+  </nav>
 
-<!-- 콘텐츠 -->
-<div id="content">
-  <!-- 영어 -->
-  <div class="lang en">
-    <h1>2026 Spring Sports Festival</h1>
-    <p>Mobile-friendly web page for easy access.</p>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">🏃 2026 Spring</div>
 
-  <!-- 일본어 -->
-  <div class="lang jp">
-    <h1>2026年 春季運動会</h1>
-    <p>モバイルで簡単にアクセスできるウェブページです。</p>
-  </div>
+    <h1 class="hero-title">
+      SPORTS<br /><span class="red">FESTIVAL</span>
+    </h1>
 
-  <!-- 한국어 -->
-  <div class="lang kr">
-    <h1>2026년도 춘계 운동회</h1>
-    <p>모바일에서 쉽게 접근 가능한 웹페이지입니다.</p>
-  </div>
-</div>
+    <div class="hero-multilang">
+      <p class="hero-sub active" data-hero="en">Mobile-friendly web page for easy access.</p>
+      <p class="hero-sub" data-hero="ja">モバイル対応のウェブページで、いつでも簡単アクセス。</p>
+      <p class="hero-sub" data-hero="ko">모바일에서 쉽고 빠르게 접근할 수 있는 웹페이지.</p>
+    </div>
 
-<script src="script.js"></script>
+    <div class="badge-row">
+      <span class="badge badge-red">🔴 Red Team</span>
+      <span class="badge badge-muted">⚪ White Team</span>
+      <span class="badge badge-yellow">⚡ Firebase</span>
+    </div>
+  </section>
+
+  <!-- TRACK DIVIDER -->
+  <div class="track-divider"></div>
+
+  <!-- ══ ENGLISH CONTENT ══ -->
+  <section class="content" data-lang="en" style="display:block;" id="content-en">
+
+    <div class="project-header">
+      <span style="font-size:28px">🏃‍♂️</span>
+      <h2 class="project-title">Sports Day Web Project</h2>
+    </div>
+    <p class="project-desc">
+      A mobile-first web app built for smooth sports festival management — real-time scores, team rosters, schedules, and admin controls, all in one place.
+    </p>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">30+</div><div class="stat-label">Concurrent Users</div></div>
+      <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Teams</div></div>
+      <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Core Pages</div></div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">📌</span><span class="card-title">Overview</span></div>
+      <div class="card-body">
+        Designed so participants can quickly access all event information via mobile — no app install needed. The goal was to increase operational efficiency through real-time data viewing and easy input for event staff.
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">🧩</span><span class="card-title">Key Features</span></div>
+      <div class="card-body">
+        <div class="sub-section">
+          <div class="sub-section-title">🏠 Home Page</div>
+          <ul>
+            <li>Overview of all event info at a glance</li>
+            <li>Quick navigation to key sections</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">Team Management</div>
+          <span class="team-pill team-red">🔴 Red Team</span>
+          <span class="team-pill team-white">⚪ White Team</span>
+          <ul style="margin-top:8px">
+            <li>Participant name entry per team</li>
+            <li>Sorting participants by event</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">📝 Scoreboard</div>
+          <ul>
+            <li>Real-time score tracking by team</li>
+            <li>Instant game result updates</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">📅 Schedule</div>
+          <ul>
+            <li>Time-based match schedule view</li>
+            <li>Useful for both participants and staff</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">⚙️ Admin System</div>
+          <ul>
+            <li>Dedicated admin-only page</li>
+            <li>Edit participants, scores, and schedules after login</li>
+            <li>Regular users: view-only access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">🌐</span><span class="card-title">Tech Stack</span></div>
+      <div class="card-body">
+        <div class="chip-row">
+          <span class="chip">Firebase</span>
+          <span class="chip">Realtime DB</span>
+          <span class="chip">Mobile-first</span>
+          <span class="chip">No app install</span>
+        </div>
+        <ul style="margin-top:12px">
+          <li>Firebase-based backend with real-time sync</li>
+          <li>Stable under 30+ simultaneous connections</li>
+          <li>Fully optimised for mobile browsers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">💡</span><span class="card-title">Impact</span></div>
+      <div class="card-body">
+        <ul>
+          <li>Fully paperless event management</li>
+          <li>Improved experience for all participants</li>
+          <li>Reduced workload for event staff</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ JAPANESE CONTENT ══ -->
+  <section class="content" data-lang="ja" id="content-ja" style="font-family:'DM Sans','Noto Sans JP',sans-serif;">
+
+    <div class="project-header">
+      <span style="font-size:28px">🏃‍♂️</span>
+      <h2 class="project-title">運動会 Web プロジェクト</h2>
+    </div>
+    <p class="project-desc">
+      スマホから手軽にアクセスできる運動会専用 Web アプリ。リアルタイムのスコア管理・チーム編成・スケジュール確認を一元化しました。
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">30+</div><div class="stat-label">同時接続数</div></div>
+      <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">チーム</div></div>
+      <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">主要ページ</div></div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">📌</span><span class="card-title">プロジェクト概要</span></div>
+      <div class="card-body">
+        参加者がモバイルから素早く情報にアクセスできるよう設計。リアルタイム情報確認と簡単な入力機能によって、運営効率の向上を目指しました。
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">🧩</span><span class="card-title">主な機能</span></div>
+      <div class="card-body">
+        <div class="sub-section">
+          <div class="sub-section-title">🏠 メインページ</div>
+          <ul><li>運動会全体情報の一覧表示</li><li>各メニューへのクイックナビゲーション</li></ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">チーム管理</div>
+          <span class="team-pill team-red">🔴 紅チーム</span>
+          <span class="team-pill team-white">⚪ 白チーム</span>
+          <ul style="margin-top:8px">
+            <li>チームごとの参加者名入力</li>
+            <li>種目別の参加者振り分け</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">📝 スコアボード</div>
+          <ul><li>チーム別リアルタイムスコア確認</li><li>試合結果の即時反映</li></ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">📅 スケジュール</div>
+          <ul><li>時間帯別の試合スケジュール</li><li>参加者・運営スタッフ共通で利用可能</li></ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">⚙️ 管理者システム</div>
+          <ul>
+            <li>管理者専用ページを別途用意</li>
+            <li>ログイン後：参加者情報・スコア・スケジュールの編集が可能</li>
+            <li>一般ユーザーは閲覧のみ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">🌐</span><span class="card-title">技術構成</span></div>
+      <div class="card-body">
+        <div class="chip-row">
+          <span class="chip">Firebase</span>
+          <span class="chip">リアルタイム DB</span>
+          <span class="chip">モバイル最適化</span>
+          <span class="chip">アプリ不要</span>
+        </div>
+        <ul style="margin-top:12px">
+          <li>Firebase によるリアルタイムデータ管理</li>
+          <li>30名以上の同時接続でも安定動作を確認</li>
+          <li>モバイルブラウザに完全最適化</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">💡</span><span class="card-title">期待される効果</span></div>
+      <div class="card-body">
+        <ul>
+          <li>ペーパーレスな運動会運営が実現</li>
+          <li>参加者の利便性が大幅に向上</li>
+          <li>運営スタッフの管理負担を軽減</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ KOREAN CONTENT ══ -->
+  <section class="content" data-lang="ko" id="content-ko" style="font-family:'DM Sans','Noto Sans KR',sans-serif;">
+
+    <div class="project-header">
+      <span style="font-size:28px">🏃‍♂️</span>
+      <h2 class="project-title">운동회 웹페이지 프로젝트</h2>
+    </div>
+    <p class="project-desc">
+      운동회 진행 시 참가자들이 모바일을 통해 쉽고 빠르게 정보에 접근할 수 있도록 개발한 웹앱. 실시간 정보 확인과 간편한 입력 기능으로 운영 효율을 높였습니다.
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">30+</div><div class="stat-label">동시 접속</div></div>
+      <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">팀</div></div>
+      <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">핵심 페이지</div></div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">📌</span><span class="card-title">프로젝트 개요</span></div>
+      <div class="card-body">
+        운동회 진행 시 참가자들이 모바일을 통해 쉽고 빠르게 정보에 접근할 수 있도록 웹페이지를 개발했습니다. 실시간 정보 확인과 간편한 입력 기능을 통해 행사 운영 효율성을 높이는 것을 목표로 했습니다.
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">🧩</span><span class="card-title">주요 기능</span></div>
+      <div class="card-body">
+        <div class="sub-section">
+          <div class="sub-section-title">🏠 메인 페이지</div>
+          <ul><li>전체 운동회 정보 요약 제공</li><li>주요 메뉴로 빠르게 이동 가능</li></ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">팀 관리</div>
+          <span class="team-pill team-red">🔴 홍팀</span>
+          <span class="team-pill team-white">⚪ 백팀</span>
+          <ul style="margin-top:8px">
+            <li>각 팀별 참가자 이름 입력 기능</li>
+            <li>종목별 참가자 구분 가능</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">📝 점수표</div>
+          <ul><li>팀별 점수 실시간 확인</li><li>경기 결과 반영 가능</li></ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">📅 스케줄표</div>
+          <ul><li>시간대별 경기 일정 확인</li><li>참가자 및 운영진 모두 활용 가능</li></ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-section-title">⚙️ 관리자 시스템</div>
+          <ul>
+            <li>관리자 전용 페이지 별도 구성</li>
+            <li>관리자 로그인 시: 참가자 정보, 점수, 일정 수정 가능</li>
+            <li>일반 사용자는 조회 기능만 제공</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">🌐</span><span class="card-title">서버 구성 & 성능</span></div>
+      <div class="card-body">
+        <div class="chip-row">
+          <span class="chip">Firebase</span>
+          <span class="chip">실시간 DB</span>
+          <span class="chip">모바일 최적화</span>
+          <span class="chip">앱 설치 불필요</span>
+        </div>
+        <ul style="margin-top:12px">
+          <li>Firebase 기반 서버 구성, 실시간 데이터 반영</li>
+          <li>최대 30명 동시 접속 환경에서 안정적으로 동작 확인</li>
+          <li>모바일 환경 최적화 설계</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="card-header"><span class="card-icon">💡</span><span class="card-title">기대 효과</span></div>
+      <div class="card-body">
+        <ul>
+          <li>종이 없이 디지털로 운동회 운영 가능</li>
+          <li>참가자 편의성 향상</li>
+          <li>운영진 관리 효율 증가</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    2026 Spring Sports Festival &nbsp;·&nbsp; Built with ❤️ &amp; Firebase
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      // Update buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+      // Hide all content sections
+      document.querySelectorAll('[data-lang]').forEach(el => el.style.display = 'none');
+
+      // Show target section
+      const target = document.getElementById('content-' + lang);
+      if (target) {
+        target.style.display = 'block';
+        target.style.opacity = '0';
+        target.style.transform = 'translateY(16px)';
+        requestAnimationFrame(() => {
+          target.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+          target.style.opacity = '1';
+          target.style.transform = 'translateY(0)';
+        });
+      }
+
+      // Update hero sub
+      document.querySelectorAll('[data-hero]').forEach(el => el.classList.remove('active'));
+      const heroSub = document.querySelector(`[data-hero="${lang}"]`);
+      if (heroSub) heroSub.classList.add('active');
+
+      // Update html lang
+      document.documentElement.lang = lang;
+    }
+
+    // Initialize: show EN content
+    document.getElementById('content-en').style.display = 'block';
+  </script>
 </body>
 </html>
